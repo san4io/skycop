@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock body %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        var countryElement = $('#fos_user_registration_form_country');
+        var cityElement = $('#fos_user_registration_form_city');
+        var citiesOptions = $('option', cityElement);
+        checkCities();
+
+        countryElement.on('change', checkCities);
+
+        function checkCities() {
+            cityElement.html('');
+            for (var city of citiesOptions) {
+                if (city.getAttribute('country') === countryElement.val()) {
+                    cityElement.append(city);
+                }
+            }
+        };
+    </script>
+{% endblock javascripts %}

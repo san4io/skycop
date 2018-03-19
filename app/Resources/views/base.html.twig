@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<nav class="navbar is-dark">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{ path('homepage') }}">
+            <img src="https://www.skycop.lt/wp-content/uploads/2017/04/logo.png" alt="Skycop test" width="112" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{{ path('homepage') }}">
+                Home
+            </a>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field is-grouped">
+                    {% if not app.user %}
+                    <p class="control">
+                        <a class="bd-tw-button button" href="{{ path('fos_user_security_login') }}">
+                            <span class="icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </span>
+                            <span>
+                                Login
+                            </span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a class="button is-link" href="{{ path('fos_user_registration_register') }}">
+                            <span class="icon">
+                                <i class="fas fa-user-plus"></i>
+                            </span>
+                            <span>Register</span>
+                        </a>
+                    </p>
+                    {% else %}
+                        <p class="control">
+                            <a class="button is-link" href="{{ path('fos_user_profile_show') }}">
+                            <span class="icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                                <span>Profile</span>
+                            </a>
+                        </p>
+                        <p class="control">
+                            <a class="button is-danger" href="{{ path('fos_user_security_logout') }}">
+                            <span class="icon">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </span>
+                                <span>Logout</span>
+                            </a>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="section">
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+</section>
+<!--  Scripts-->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>
