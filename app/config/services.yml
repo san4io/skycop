@@ -38,3 +38,25 @@ services:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+    app.service.event_logger:
+        class: AppBundle\Service\EventLogger
+        arguments:
+            - '@app.entity.repository.event'
+
+    app.entity.repository.event:
+        class: AppBundle\Entity\Repository\EventRepository
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    app.listener.logout:
+        class: AppBundle\Listener\LogoutListener
+        arguments:
+            - '@app.service.event_logger'
+
+    app.listener.login:
+        class:  AppBundle\Listener\LoginListener
+        arguments:
+            - '@app.service.event_logger'
+        tags:
+            - { name: kernel.event_listener, event: security.interactive_login, method: login }
