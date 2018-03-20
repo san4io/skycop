@@ -29,5 +29,6 @@ Webpage can be found at [localhost](http://localhost)
 ### Real life improvements
 * Separate bundle for EventLogger.
 * Separate bundle for Auth.
-* I would use symfony (or any other framework) as micro-service, write swagger annotations and develop SPA app. 
+* Disable login/register routes for authenticated user.
+* I would use symfony (or any other framework) as micro-service with oAuth2, write swagger annotations and develop SPA app. 
 * Tests, tests, tests.

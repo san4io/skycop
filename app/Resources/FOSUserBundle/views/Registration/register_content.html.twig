@@ -1,13 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
-{%- block form_rows -%}
-    {% for child in form %}
-        <div class="field">
-            <div class="control">
-                {{- form_row(child) -}}
-            </div>
-        </div>
-    {% endfor %}
-{%- endblock form_rows -%}
+
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
 
