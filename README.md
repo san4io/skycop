@@ -11,7 +11,7 @@ Skycop PHP app
 ```
 cd .docker
 docker-compose build // If you have some other images build from php nginx or mariadb
-docker-compose up
+docker-compose up -d
 docker-compose exec php-fpm bash install.sh
 ```
 
