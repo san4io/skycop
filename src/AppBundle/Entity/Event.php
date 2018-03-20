@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User;
 
 /**
  * @ORM\Table("events")
@@ -35,7 +36,7 @@ class Event
     protected $action;
 
     /**
-     * @var \FOS\UserBundle\Model\User
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="events")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")

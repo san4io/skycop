@@ -4,7 +4,7 @@ namespace AppBundle\Listener;
 
 use AppBundle\Entity\User;
 use AppBundle\Service\EventLogger;
-use FOS\UserBundle\Model\UserManagerInterface;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;

@@ -71,7 +71,7 @@ class RegistrationType extends AbstractType
                     new City('LV', 'Riga'),
                 ],
                 'choice_value' => function (City $city = null) {
-                    return $city ? $city->getName() : '';;
+                    return $city ? $city->getName() : '';
                 },
                 'choice_label' => function (City $city) {
                     return $city->getName();

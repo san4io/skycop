@@ -3,7 +3,7 @@
 namespace AppBundle\Listener;
 
 use AppBundle\Service\EventLogger;
-use FOS\UserBundle\Model\UserManagerInterface;
+
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 
 /**
