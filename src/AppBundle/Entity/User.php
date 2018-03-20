@@ -41,7 +41,7 @@ class User extends BaseUser
      *      minMessage = "Your password must be at least {{ limit }} characters long",
      * )
      */
-    protected $password;
+    protected $plainPassword;
 
     /**
      * @var string
