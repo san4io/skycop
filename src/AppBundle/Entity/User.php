@@ -36,6 +36,16 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @Assert\Length(
+     *      min = 8,
+     *      minMessage = "Your password must be at least {{ limit }} characters long",
+     * )
+     */
+    protected $password;
+
+    /**
+     * @var string
+     *
      * @Assert\NotBlank()
      *
      * @ORM\Column(name="name", type="string")
