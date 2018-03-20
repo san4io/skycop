@@ -4,7 +4,7 @@ MAINTAINER Aleksandr Golubovskij <alegol90@gmail.com>
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache bash shadow libxml2-dev curl-dev \
+    && apk add --no-cache bash shadow libxml2-dev curl-dev git \
     && usermod -u 1000 www-data
 
 RUN docker-php-ext-install zlib; exit 0 \
